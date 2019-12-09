@@ -2,29 +2,29 @@
 
 namespace MyWork.Migrations.Funcionario
 {
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Funcionário",
+                name: "Funcionario",
                 columns: table => new
                 {
-                    IDFuncionarios = table.Column<int>(nullable: false)
+                    FuncionariosID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(nullable: true),
-                    Numero = table.Column<string>(nullable: true)
+                    Nome = table.Column<string>(nullable: false),
+                    Numero = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Funcionário", x => x.IDFuncionarios);
+                    table.PrimaryKey("PK_Funcionario", x => x.FuncionariosID);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Funcionário");
+                name: "Funcionario");
         }
     }
 }

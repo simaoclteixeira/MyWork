@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace MyWork.Models
 {
-    public class Funcionário
+    public class Funcionario
     {
         [Key]
-        public int IDFuncionarios { get; set; }
-
+        public int FuncionariosID { get; set; }
+        [Required]
         public string Nome { get; set; }
-
+        [Required]
         public string Numero { get; set; }
 
 

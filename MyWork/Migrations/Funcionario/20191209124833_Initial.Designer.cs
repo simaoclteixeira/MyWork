@@ -9,8 +9,8 @@ using MyWork.Models;
 namespace MyWork.Migrations.Funcionario
 {
     [DbContext(typeof(FuncionarioContext))]
-    [Migration("20191202111023_initial")]
-    partial class initial
+    [Migration("20191209124833_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,22 +20,24 @@ namespace MyWork.Migrations.Funcionario
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("MyWork.Models.Funcionário", b =>
+            modelBuilder.Entity("MyWork.Models.Funcionario", b =>
                 {
-                    b.Property<int>("IDFuncionarios")
+                    b.Property<int>("FuncionariosID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Nome")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Numero")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("IDFuncionarios");
+                    b.HasKey("FuncionariosID");
 
-                    b.ToTable("Funcionário");
+                    b.ToTable("Funcionario");
                 });
 #pragma warning restore 612, 618
         }

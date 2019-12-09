@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MyWork.Models.Funcionário>
+﻿@model IEnumerable<MyWork.Models.Funcionario>
 
 @{
     ViewData["Title"] = "Index";
@@ -31,9 +31,9 @@
                 @Html.DisplayFor(modelItem => item.Numero)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IDFuncionarios">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IDFuncionarios">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IDFuncionarios">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.FuncionariosID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.FuncionariosID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.FuncionariosID">Delete</a>
             </td>
         </tr>
 }

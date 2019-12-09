@@ -13,6 +13,6 @@ namespace MyWork.Models
         {
         }
 
-        public DbSet<MyWork.Models.Funcionário> Funcionário { get; set; }
+        public DbSet<MyWork.Models.Funcionario> Funcionario { get; set; }
     }
 }
