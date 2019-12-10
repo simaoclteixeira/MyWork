@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -6,9 +7,12 @@ using System.Threading.Tasks;
 
 namespace MyWork.Models
 {
-    public class Servicos{
+    public class Servico{
+
         [Key]
-        public int ServicosID { get; set; }
+        public int ServicoID { get; set; }
+       
+        [Required]
         public String Nome { get; set; }
 
     }
