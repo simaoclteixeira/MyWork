@@ -10,11 +10,11 @@ using MyWork.Models;
 
 namespace MyWork.Controllers
 {
-    public class ServicosController : Controller
+    public class ServicoController : Controller
     {
         private readonly ServicoContext _context;
 
-        public ServicosController(ServicoContext context)
+        public ServicoController(ServicoContext context)
         {
             _context = context;
         }
