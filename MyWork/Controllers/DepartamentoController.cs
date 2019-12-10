@@ -9,11 +9,11 @@ using MyWork.Models;
 
 namespace MyWork.Controllers
 {
-    public class DepartamentosController : Controller
+    public class DepartamentoController : Controller
     {
-        private readonly DepartamentosContext _context;
+        private readonly DepartamentoContext _context;
 
-        public DepartamentosController(DepartamentosContext context)
+        public DepartamentoController(DepartamentoContext context)
         {
             _context = context;
         }

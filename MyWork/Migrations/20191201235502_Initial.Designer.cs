@@ -8,7 +8,7 @@ using MyWork.Models;
 
 namespace MyWork.Migrations
 {
-    [DbContext(typeof(DepartamentosContext))]
+    [DbContext(typeof(DepartamentoContext))]
     [Migration("20191201235502_Initial")]
     partial class Initial
     {

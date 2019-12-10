@@ -36,7 +36,7 @@ namespace MyWork
             services.AddControllersWithViews();
             services.AddRazorPages();
 
-            services.AddDbContext<DepartamentosContext>(options =>
+            services.AddDbContext<DepartamentoContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("DepartamentosContext")));
 
             services.AddDbContext<FuncionarioContext>(options =>

@@ -6,9 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MyWork.Models
 {
-    public class DepartamentosContext : DbContext
+    public class DepartamentoContext : DbContext
     {
-        public DepartamentosContext (DbContextOptions<DepartamentosContext> options)
+        public DepartamentoContext (DbContextOptions<DepartamentoContext> options)
             : base(options)
         {
         }

@@ -14,7 +14,5 @@ namespace MyWork.Models
         public string Nome { get; set; }
         [Required]
         public string Numero { get; set; }
-
-
     }
 }

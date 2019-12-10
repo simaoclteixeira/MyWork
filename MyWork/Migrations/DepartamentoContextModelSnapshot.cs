@@ -7,8 +7,8 @@ using MyWork.Models;
 
 namespace MyWork.Migrations
 {
-    [DbContext(typeof(DepartamentosContext))]
-    partial class DepartamentosContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(DepartamentoContext))]
+    partial class DepartamentoContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
