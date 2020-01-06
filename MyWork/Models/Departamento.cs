@@ -11,6 +11,7 @@ namespace MyWork.Models
         [Key]
         public int DepartamentoID { get; set; }
 
+        [Required(ErrorMessage = "Insira o nome")]
         public String Nome { get; set; }
     }
 }

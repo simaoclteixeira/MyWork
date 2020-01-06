@@ -11,20 +11,20 @@ namespace MyWork.Controllers
 {
     public class FuncionarioController : Controller
     {
-        private readonly FuncionarioContext _context;
+        private readonly GestaoServicoContext _context;
 
-        public FuncionarioController(FuncionarioContext context)
+        public FuncionarioController(GestaoServicoContext context)
         {
             _context = context;
         }
 
-        // GET: Funcionarios
+        // GET: Funcionario
         public async Task<IActionResult> Index()
         {
             return View(await _context.Funcionario.ToListAsync());
         }
 
-        // GET: Funcionarios/Details/5
+        // GET: Funcionario/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -42,18 +42,18 @@ namespace MyWork.Controllers
             return View(funcionario);
         }
 
-        // GET: Funcionarios/Create
+        // GET: Funcionario/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Funcionarios/Create
+        // POST: Funcionario/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FuncionariosID,Nome,Numero")] Funcionario funcionario)
+        public async Task<IActionResult> Create([Bind("FuncionariosID,Nome,Numero,Email")] Funcionario funcionario)
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +64,7 @@ namespace MyWork.Controllers
             return View(funcionario);
         }
 
-        // GET: Funcionarios/Edit/5
+        // GET: Funcionario/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -80,12 +80,12 @@ namespace MyWork.Controllers
             return View(funcionario);
         }
 
-        // POST: Funcionarios/Edit/5
+        // POST: Funcionario/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FuncionariosID,Nome,Numero")] Funcionario funcionario)
+        public async Task<IActionResult> Edit(int id, [Bind("FuncionariosID,Nome,Numero,Email")] Funcionario funcionario)
         {
             if (id != funcionario.FuncionariosID)
             {
@@ -115,7 +115,7 @@ namespace MyWork.Controllers
             return View(funcionario);
         }
 
-        // GET: Funcionarios/Delete/5
+        // GET: Funcionario/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -133,7 +133,7 @@ namespace MyWork.Controllers
             return View(funcionario);
         }
 
-        // POST: Funcionarios/Delete/5
+        // POST: Funcionario/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

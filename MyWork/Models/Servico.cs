@@ -12,8 +12,12 @@ namespace MyWork.Models
         [Key]
         public int ServicoID { get; set; }
        
-        [Required]
+        [Required(ErrorMessage ="Insira o nome")]
         public String Nome { get; set; }
+        [StringLength(200, MinimumLength =4)]
+        public String Descricao { get; set; }
+        [Required(ErrorMessage ="Insira a data")]
+        public DateTime Data { get; set; }
 
     }
 }

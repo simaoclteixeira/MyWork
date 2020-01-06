@@ -5,27 +5,26 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using MyWork.Data;
 using MyWork.Models;
 
 namespace MyWork.Controllers
 {
     public class ServicoController : Controller
     {
-        private readonly ServicoContext _context;
+        private readonly GestaoServicoContext _context;
 
-        public ServicoController(ServicoContext context)
+        public ServicoController(GestaoServicoContext context)
         {
             _context = context;
         }
 
-        // GET: Servicoes
+        // GET: Servico
         public async Task<IActionResult> Index()
         {
             return View(await _context.Servico.ToListAsync());
         }
 
-        // GET: Servicoes/Details/5
+        // GET: Servico/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -43,18 +42,18 @@ namespace MyWork.Controllers
             return View(servico);
         }
 
-        // GET: Servicoes/Create
+        // GET: Servico/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Servicoes/Create
+        // POST: Servico/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ServicoID,Nome")] Servico servico)
+        public async Task<IActionResult> Create([Bind("ServicoID,Nome,Descricao,Data")] Servico servico)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +64,7 @@ namespace MyWork.Controllers
             return View(servico);
         }
 
-        // GET: Servicoes/Edit/5
+        // GET: Servico/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -81,12 +80,12 @@ namespace MyWork.Controllers
             return View(servico);
         }
 
-        // POST: Servicoes/Edit/5
+        // POST: Servico/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ServicoID,Nome")] Servico servico)
+        public async Task<IActionResult> Edit(int id, [Bind("ServicoID,Nome,Descricao,Data")] Servico servico)
         {
             if (id != servico.ServicoID)
             {
@@ -116,7 +115,7 @@ namespace MyWork.Controllers
             return View(servico);
         }
 
-        // GET: Servicoes/Delete/5
+        // GET: Servico/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -134,7 +133,7 @@ namespace MyWork.Controllers
             return View(servico);
         }
 
-        // POST: Servicoes/Delete/5
+        // POST: Servico/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

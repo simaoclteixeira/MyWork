@@ -11,20 +11,20 @@ namespace MyWork.Controllers
 {
     public class DepartamentoController : Controller
     {
-        private readonly DepartamentoContext _context;
+        private readonly GestaoServicoContext _context;
 
-        public DepartamentoController(DepartamentoContext context)
+        public DepartamentoController(GestaoServicoContext context)
         {
             _context = context;
         }
 
-        // GET: Departamentos
+        // GET: Departamento
         public async Task<IActionResult> Index()
         {
             return View(await _context.Departamentos.ToListAsync());
         }
 
-        // GET: Departamentos/Details/5
+        // GET: Departamento/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -42,13 +42,13 @@ namespace MyWork.Controllers
             return View(departamentos);
         }
 
-        // GET: Departamentos/Create
+        // GET: Departamento/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Departamentos/Create
+        // POST: Departamento/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -64,7 +64,7 @@ namespace MyWork.Controllers
             return View(departamentos);
         }
 
-        // GET: Departamentos/Edit/5
+        // GET: Departamento/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -80,7 +80,7 @@ namespace MyWork.Controllers
             return View(departamentos);
         }
 
-        // POST: Departamentos/Edit/5
+        // POST: Departamento/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -115,7 +115,7 @@ namespace MyWork.Controllers
             return View(departamentos);
         }
 
-        // GET: Departamentos/Delete/5
+        // GET: Departamento/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -133,7 +133,7 @@ namespace MyWork.Controllers
             return View(departamentos);
         }
 
-        // POST: Departamentos/Delete/5
+        // POST: Departamento/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
