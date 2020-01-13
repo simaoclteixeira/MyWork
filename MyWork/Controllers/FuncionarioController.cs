@@ -12,6 +12,7 @@ namespace MyWork.Controllers
     public class FuncionarioController : Controller
     {
         private readonly GestaoServicoContext _context;
+        public int PaginasTamanho = 5;
 
         public FuncionarioController(GestaoServicoContext context)
         {
@@ -19,9 +20,27 @@ namespace MyWork.Controllers
         }
 
         // GET: Funcionario
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-            return View(await _context.Funcionario.ToListAsync());
+            decimal nuDepartamento = _context.Funcionario.Count();
+            int NUMERO_PAGINAS_ANTES_DEPOIS = ((int)nuDepartamento / PaginasTamanho);
+
+            if (nuDepartamento % PaginasTamanho == 0)
+            {
+                NUMERO_PAGINAS_ANTES_DEPOIS -= 1;
+            }
+
+            PaginacaoFuncionario dp = new PaginacaoFuncionario
+            {
+                Funcionario = _context.Funcionario.OrderBy(p => p.Nome).Skip((page - 1) * PaginasTamanho).Take(PaginasTamanho),
+                PagAtual = page,
+                PriPagina = Math.Max(1, page - NUMERO_PAGINAS_ANTES_DEPOIS),
+                TotPaginas = (int)Math.Ceiling(nuDepartamento / PaginasTamanho)
+            };
+
+            dp.UltPagina = Math.Min(dp.TotPaginas, page + NUMERO_PAGINAS_ANTES_DEPOIS);
+
+            return View(dp);
         }
 
         // GET: Funcionario/Details/5
