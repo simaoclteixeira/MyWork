@@ -5,7 +5,7 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -22,14 +22,14 @@
     <link href="~/css/site.css" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 
 <body>
 
     <nav class="navbar navbar-expand-lg" style="background-color:#b12a23" id="sideNav">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <a class="navbar-brand js-scroll-trigger" href="Home">
 
             <span class="d-none d-lg-block">
                 <!-- --><img src="@Url.Content("~/css/logo_ipg.png")" alt="">
@@ -61,7 +61,7 @@
     </nav>
 
 
-    <div class="container body-content">
+    <div class="container body-content" >
         @RenderBody()
         <hr />
         <footer>
@@ -70,7 +70,7 @@
     </div>
     @RenderSection("Scripts", required: false)
 </body>
-
+</html>
 
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
@@ -82,4 +82,4 @@
 <!-- Custom scripts for this template -->
 <script src="~/js/resume.js"></script>
 
-</html>
+
