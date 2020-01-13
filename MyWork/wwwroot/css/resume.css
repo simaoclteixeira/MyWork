@@ -10,11 +10,12 @@ body {
   color: #868e96;
 }
 
-@media (min-width: 1500px) {
-  body {
-    padding-top: 0;
-    padding-left: 3rem;
-  }
+@media (min-width: 4500px) {
+    body {
+        padding-top: 0;
+        
+        padding-right: 3rem;
+    }
 }
 
 h1,
@@ -169,7 +170,7 @@ section.resume-section .resume-item .resume-date {
 }
 
 .bg-primary {
-    background-color: #A82020 !important;
+    background-color: #A82020!important;
 }
 
 .text-primary {
@@ -177,7 +178,7 @@ section.resume-section .resume-item .resume-date {
 }
 
 a {
-    color: #ababab !important;
+    color: #ababab!important;
 }
 
 a:hover, a:focus, a:active {
