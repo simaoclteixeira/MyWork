@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyWork.Models
 {
-    public class Departamentos
+    public class Departamentos 
     {
         [Key]
         public int DepartamentoID { get; set; }
@@ -14,4 +14,4 @@ namespace MyWork.Models
         [Required(ErrorMessage = "Insira o nome")]
         public String Nome { get; set; }
     }
-}
+} 

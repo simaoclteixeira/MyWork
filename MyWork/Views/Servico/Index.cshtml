@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MyWork.Models.Servico>
+﻿@model PaginacaoServico
 
 @{
     ViewData["Title"] = "Index";
@@ -13,35 +13,52 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nome)
+               Nome
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Descricao)
+               Descricao
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Data)
+               Data
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Data)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ServicoID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ServicoID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ServicoID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Servico)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ServicoID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ServicoID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ServicoID">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+@for (int i = 1; i <= Model.TotPaginas; i++)
+{
+
+    @if (i == Model.PagAtual)
+    {
+
+        <a href="#" class="btn btn-outline-primary">@i</a>
+
+    }
+    else
+    {
+
+        <a asp-action="Index" asp-route-page="@i" class="btn btn-outline-info">@i</a>
+    }
+}
+
