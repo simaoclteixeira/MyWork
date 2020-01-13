@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MyWork.Models;
 
 namespace MyWork.Controllers
-{
+{  
     public class DepartamentoController : Controller
     {
         private readonly GestaoServicoContext _context;
