@@ -45,6 +45,11 @@ namespace MyWork
         {
             if (env.IsDevelopment())
             {
+                using (var serviceScope = app.ApplicationServices.CreateScope())
+                {
+                    var db = serviceScope.ServiceProvider.GetService<GestaoServicoContext>();
+                    SeedData.Populate(db);
+                }
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
             }
