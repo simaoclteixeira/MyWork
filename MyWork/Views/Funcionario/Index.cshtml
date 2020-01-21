@@ -9,6 +9,15 @@
 <p>
     <a asp-action="Create">Criar Novo</a>
 </p>
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Procurar por nome: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+            <input type="submit" value="Procurar" class="btn btn-danger" />
+        </p>
+    </div>
+</form>
 <table class="table">
     <thead>
         <tr>

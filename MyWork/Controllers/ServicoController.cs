@@ -13,6 +13,7 @@ namespace MyWork.Controllers
     {
         private readonly GestaoServicoContext _context;
         public int PaginasTamanho = 5;
+        private int NUMBER_FUNC_PER_PAGE = 5;
 
         public ServicoController(GestaoServicoContext context)
         {
@@ -20,8 +21,20 @@ namespace MyWork.Controllers
         }
 
         // GET: Servico
-        public async Task<IActionResult> Index(int page = 1)
+        public async Task<IActionResult> Index(int page = 1, string searchString = "", string sort = "true", string procurar = "Nome")
         {
+            var Servico = from p in _context.Servico
+                                select p;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Servico = Servico.Where(p => p.Nome.Contains(searchString));
+                if (procurar.Equals("Nome"))
+                {
+                    Servico = Servico.Where(p => p.Nome.Contains(searchString));
+                }
+            }
+
             decimal nuDepartamento = _context.Servico.Count();
             int NUMERO_PAGINAS_ANTES_DEPOIS = ((int)nuDepartamento / PaginasTamanho);
 
@@ -32,13 +45,25 @@ namespace MyWork.Controllers
 
             PaginacaoServico dp = new PaginacaoServico
             {
+                Sort = sort,
                 Servico = _context.Servico.OrderBy(p => p.Nome).Skip((page - 1) * PaginasTamanho).Take(PaginasTamanho),
                 PagAtual = page,
                 PriPagina = Math.Max(1, page - NUMERO_PAGINAS_ANTES_DEPOIS),
-                TotPaginas = (int)Math.Ceiling(nuDepartamento / PaginasTamanho)
+                TotPaginas = (int)Math.Ceiling(nuDepartamento / PaginasTamanho),
+                Procurar = procurar
             };
 
+            if (sort.Equals("true"))
+            {
+                dp.Servico = Servico.OrderBy(p => p.Nome).Skip((page - 1) * NUMBER_FUNC_PER_PAGE).Take(NUMBER_FUNC_PER_PAGE);
+            }
+            else
+            {
+                dp.Servico = Servico.OrderByDescending(p => p.Nome).Skip((page - 1) * NUMBER_FUNC_PER_PAGE).Take(NUMBER_FUNC_PER_PAGE);
+            }
+
             dp.UltPagina = Math.Min(dp.TotPaginas, page + NUMERO_PAGINAS_ANTES_DEPOIS);
+            dp.StringProcurar = searchString;
 
             return View(dp);
         }

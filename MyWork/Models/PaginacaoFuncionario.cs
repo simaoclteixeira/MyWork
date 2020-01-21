@@ -17,5 +17,9 @@ namespace MyWork.Models
 
         public int UltPagina { get; set; }
 
+        public string StringProcurar { get; set; }
+        public string Procurar { get; set; }
+        public string Sort { get; set; }
+
     }
 }
