@@ -13,6 +13,7 @@ namespace MyWork.Models
 
         public int TotPaginas { get; set; }
 
+
         public int PriPagina { get; set; }
 
         public int UltPagina { get; set; }
